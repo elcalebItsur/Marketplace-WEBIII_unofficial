@@ -25,6 +25,9 @@ const PublicLayout = () => {
                 <Link className="nav-link mx-2" to="/catalog">Catálogo</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link mx-2" to="/profile">Perfil</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link mx-2 position-relative" to="/cart">
                   <ShoppingCart size={20} />
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
