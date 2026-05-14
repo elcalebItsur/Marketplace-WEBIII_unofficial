@@ -17,7 +17,7 @@ const ProductDetail = () => {
 
   return (
     <div className="bg-light min-vh-100 py-5">
-      <div className="container">
+      <div className="container-fluid px-4">
         {/* Breadcrumb / Back button */}
         <nav className="mb-4">
           <Link to="/catalog" className="text-decoration-none text-muted d-flex align-items-center gap-2">

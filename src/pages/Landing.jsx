@@ -1,107 +1,103 @@
-import { Link } from 'react-router-dom';
-import { Rocket, ShieldCheck, Zap, ArrowRight, Star } from 'lucide-react';
+import { Search, Heart, Share2, MessageCircle, TrendingUp } from 'lucide-react';
+import { PRODUCTS } from '../data/products';
 
 const Landing = () => {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-premium py-5 text-center text-white">
-        <div className="container py-5">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <h1 className="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">
-                Tu Comunidad, Tu <span className="text-warning">Marketplace</span>
-              </h1>
-              <p className="lead mb-5 opacity-75">
-                La plataforma exclusiva para estudiantes y profesores del ITSUR. Compra, vende e intercambia con seguridad en tu entorno educativo.
-              </p>
-              <div className="d-flex justify-content-center gap-3">
-                <Link to="/catalog" className="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary shadow">
-                  Explorar Ahora
-                </Link>
-                <Link to="/login" className="btn btn-outline-light btn-lg rounded-pill px-5">
-                  Vender algo
-                </Link>
-              </div>
+    <div className="landing-feed">
+      <div className="row g-4">
+        {/* CENTER FEED */}
+        <div className="col-12 col-xl-8">
+          {/* Search Header (PC) */}
+          <div className="d-none d-lg-flex align-items-center justify-content-between mb-4">
+            <h3 className="fw-bold mb-0">Inicio</h3>
+            <div className="input-group w-50 shadow-sm rounded-pill overflow-hidden">
+              <span className="input-group-text bg-white border-0 ps-3">
+                <Search size={18} className="text-muted" />
+              </span>
+              <input type="text" className="form-control border-0 py-2" placeholder="Buscar en el marketplace..." />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Features Section */}
-      <section className="py-5 bg-white">
-        <div className="container py-5">
-          <div className="text-center mb-5">
-            <h2 className="fw-bold h1">¿Por qué usar Marketplace ITSUR?</h2>
-            <div className="bg-primary mx-auto my-3" style={{ width: '60px', height: '4px' }}></div>
-          </div>
-          
-          <div className="row g-4">
-            <div className="col-md-4">
-              <div className="card h-100 border-0 text-center p-4 card-hover shadow-sm rounded-4">
-                <div className="bg-primary bg-opacity-10 text-primary rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px' }}>
-                  <Rocket size={40} />
-                </div>
-                <h3 className="h4 fw-bold">Rápido y Fácil</h3>
-                <p className="text-muted">Publica tus productos en segundos y llega a miles de compañeros de clase.</p>
-              </div>
-            </div>
-            
-            <div className="col-md-4">
-              <div className="card h-100 border-0 text-center p-4 card-hover shadow-sm rounded-4">
-                <div className="bg-success bg-opacity-10 text-success rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px' }}>
-                  <ShieldCheck size={40} />
-                </div>
-                <h3 className="h4 fw-bold">Comunidad Segura</h3>
-                <p className="text-muted">Solo usuarios verificados con correo institucional pueden participar.</p>
-              </div>
-            </div>
-            
-            <div className="col-md-4">
-              <div className="card h-100 border-0 text-center p-4 card-hover shadow-sm rounded-4">
-                <div className="bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px' }}>
-                  <Zap size={40} />
-                </div>
-                <h3 className="h4 fw-bold">Ahorro Garantizado</h3>
-                <p className="text-muted">Encuentra libros, materiales y gadgets a precios de estudiante.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats / CTA */}
-      <section className="py-5 bg-light">
-        <div className="container">
-          <div className="glass-card p-5 shadow-sm rounded-5 overflow-hidden position-relative">
-            <div className="row align-items-center">
-              <div className="col-lg-6 mb-4 mb-lg-0">
-                <h2 className="display-5 fw-bold mb-3">¿Listo para empezar?</h2>
-                <p className="lead text-muted mb-4">Únete a cientos de estudiantes que ya están aprovechando el Marketplace.</p>
-                <Link to="/login" className="btn btn-premium d-inline-flex align-items-center gap-2 shadow-lg">
-                  Crear mi cuenta <ArrowRight size={20} />
-                </Link>
-              </div>
-              <div className="col-lg-6">
-                <div className="row g-3">
-                  <div className="col-6">
-                    <div className="p-4 bg-white rounded-4 text-center shadow-sm">
-                      <h4 className="display-6 fw-bold text-primary mb-0">+500</h4>
-                      <p className="text-muted mb-0 small">Productos</p>
-                    </div>
+          <div className="mx-auto" style={{ maxWidth: '600px' }}>
+            {PRODUCTS.map(product => (
+              <article key={product.id} className="card border-0 shadow-sm rounded-3 mb-4 overflow-hidden">
+                <div className="card-header bg-white border-0 pt-3 px-3 d-flex align-items-center gap-2">
+                  <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style={{ width: '36px', height: '36px', fontSize: '0.9rem' }}>
+                    {product.seller[0]}
                   </div>
-                  <div className="col-6">
-                    <div className="p-4 bg-white rounded-4 text-center shadow-sm">
-                      <h4 className="display-6 fw-bold text-success mb-0">+1.2k</h4>
-                      <p className="text-muted mb-0 small">Usuarios</p>
-                    </div>
+                  <div>
+                    <h6 className="mb-0 fw-bold small">{product.seller}</h6>
+                    <small className="text-muted" style={{ fontSize: '0.75rem' }}>Hace 10 min · {product.category}</small>
                   </div>
                 </div>
+                
+                <div className="card-body px-3 py-2">
+                  <p className="mb-2 small">{product.description}</p>
+                  <h5 className="fw-bold text-primary mb-3">${product.price.toFixed(2)}</h5>
+                  <img 
+                    src={product.image} 
+                    className="img-fluid rounded-3 w-100 mb-2" 
+                    alt={product.title}
+                    style={{ maxHeight: '350px', objectFit: 'cover' }}
+                  />
+                </div>
+
+                <div className="card-footer bg-white border-top-0 px-3 pb-3">
+                  <div className="d-flex border-top pt-2">
+                    <button className="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 text-muted border-0 py-2 small">
+                      <Heart size={18} /> <span>Me gusta</span>
+                    </button>
+                    <button className="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 text-muted border-0 py-2 small">
+                      <MessageCircle size={18} /> <span>Comentar</span>
+                    </button>
+                    <button className="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 text-muted border-0 py-2 small">
+                      <Share2 size={18} /> <span>Compartir</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT SIDEBAR (PC) */}
+        <aside className="col-xl-4 d-none d-xl-block">
+          <div className="sticky-top" style={{ top: '20px' }}>
+            <div className="card border-0 shadow-sm rounded-3 p-3 mb-4">
+              <h6 className="fw-bold mb-3 d-flex align-items-center gap-2">
+                <TrendingUp size={18} className="text-primary" /> Tendencias
+              </h6>
+              <div className="list-group list-group-flush gap-2">
+                <div className="py-1">
+                  <small className="text-muted d-block small" style={{ fontSize: '0.7rem' }}>Libros · Tendencia</small>
+                  <strong className="d-block small">#CalculoDiferencial</strong>
+                  <small className="text-muted small">45 publicaciones</small>
+                </div>
+                <div className="py-1">
+                  <small className="text-muted d-block small" style={{ fontSize: '0.7rem' }}>Electrónica · Tendencia</small>
+                  <strong className="d-block small">#ArduinoUno</strong>
+                  <small className="text-muted small">28 publicaciones</small>
+                </div>
+              </div>
+              <button className="btn btn-light btn-sm mt-3 rounded-pill text-primary fw-bold border">Ver más</button>
+            </div>
+
+            <div className="card border-0 shadow-sm rounded-3 p-3">
+              <h6 className="fw-bold mb-3">Sugerencias</h6>
+              <div className="d-flex align-items-center justify-content-between mb-3">
+                <div className="d-flex align-items-center gap-2">
+                  <div className="bg-info text-white rounded-circle d-flex align-items-center justify-content-center fw-bold small" style={{ width: '30px', height: '30px' }}>JR</div>
+                  <div>
+                    <h6 className="mb-0 fw-bold small">José Ramírez</h6>
+                    <small className="text-muted small" style={{ fontSize: '0.7rem' }}>@jose_r12</small>
+                  </div>
+                </div>
+                <button className="btn btn-outline-primary btn-sm rounded-pill px-2 py-0 fw-bold small">Seguir</button>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </aside>
+      </div>
     </div>
   );
 };
